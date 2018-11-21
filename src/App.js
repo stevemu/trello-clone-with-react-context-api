@@ -163,9 +163,15 @@ class App extends Component {
   // }
 
   render() {
+    // console.log('in render 1');
     let rootUrl = "/";
+
+    // for github pages
     if (process.env.NODE_ENV == "production") {
-      rootUrl = "https://stevemu.github.io/trello-clone-with-react-context-api/"
+      // console.log('in production');
+      rootUrl = "/trello-clone-with-react-context-api/"
+    } else {
+      console.log('not in production');
     }
 
     return (
