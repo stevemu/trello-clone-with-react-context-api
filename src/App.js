@@ -163,6 +163,11 @@ class App extends Component {
   // }
 
   render() {
+    let rootUrl = "/";
+    if (process.env.NODE_ENV == "production") {
+      rootUrl = "https://stevemu.github.io/trello-clone-with-react-context-api/"
+    }
+
     return (
       <Router>
         <div>
@@ -179,8 +184,8 @@ class App extends Component {
             submitNewCard: this.submitNewCard,
             submitList: this.submitList
           }}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/boards/:boardId" component={ActiveBoard} />
+            <Route exact path={rootUrl} component={Home} />
+            <Route exact path={rootUrl + "boards/:boardId"} component={ActiveBoard} />
           </AppContext.Provider>
         </div>
 
